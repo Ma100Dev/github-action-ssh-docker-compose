@@ -30,7 +30,9 @@ fi
 
 ssh-add <(echo "$SSH_PRIVATE_KEY")
 
+echo ">> [local] Built command: ${remote_command}"
 echo ">> [local] Connecting to remote host."
+
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=100 \
   "$SSH_USER@$SSH_HOST" -p "$SSH_PORT" \
   "$remote_command" \
